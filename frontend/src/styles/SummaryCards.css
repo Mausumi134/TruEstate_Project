@@ -1,58 +1,126 @@
+/* ============================================
+   SUMMARY CARDS - Metric Boxes
+   ============================================ */
 .summary-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
 }
 
 .summary-card {
-  background-color: white;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  transition: all 0.2s;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--brand-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-base);
 }
 
 .summary-card:hover {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
 }
 
-.card-title {
-  font-size: 0.9rem;
-  color: #6c757d;
-  margin-bottom: 0.75rem;
-  font-weight: 500;
+.summary-card:hover::before {
+  opacity: 1;
 }
 
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.card-title {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-icon {
+  width: var(--icon-md);
+  height: var(--icon-md);
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* Card Value */
 .card-value {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #212529;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-xs);
   display: flex;
   align-items: baseline;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
 }
 
+.card-value .currency {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+}
+
+/* Card Subtitle/Hint */
 .card-subtitle {
-  font-size: 0.85rem;
-  color: #6c757d;
-  font-weight: 400;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4;
 }
 
+/* Card Variants */
+.summary-card.primary {
+  border-top: 3px solid var(--brand-purple);
+}
+
+.summary-card.success {
+  border-top: 3px solid var(--accent-green);
+}
+
+.summary-card.info {
+  border-top: 3px solid var(--brand-teal);
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
   .summary-cards {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
   }
 }
 
 @media (max-width: 640px) {
   .summary-cards {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
   
   .card-value {
-    font-size: 1.5rem;
+    font-size: var(--font-size-xl);
+  }
+  
+  .summary-card {
+    padding: var(--spacing-md);
   }
 }

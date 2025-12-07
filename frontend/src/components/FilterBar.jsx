@@ -39,8 +39,31 @@ function FilterBar({ filters, sorting, onFilterChange, onSortChange }) {
     ? `${filters.minAge || 0}-${filters.maxAge || 100}`
     : 'null-null';
 
+  const handleRefresh = () => {
+    // Reset all filters
+    onFilterChange('customerRegion', '');
+    onFilterChange('gender', '');
+    onFilterChange('minAge', null);
+    onFilterChange('maxAge', null);
+    onFilterChange('productCategory', '');
+    onFilterChange('tags', '');
+    onFilterChange('paymentMethod', '');
+    onFilterChange('startDate', '');
+    onSortChange({ sortBy: 'date', sortOrder: 'desc' });
+  };
+
   return (
     <div className="filter-bar">
+      <button 
+        onClick={handleRefresh}
+        className="refresh-button"
+        title="Reset all filters"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C9.84871 2 11.5 2.87858 12.5858 4.24264M12.5858 4.24264V1M12.5858 4.24264H9.34315" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
+
       <select 
         value={filters.customerRegion} 
         onChange={(e) => onFilterChange('customerRegion', e.target.value)}

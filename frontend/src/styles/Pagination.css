@@ -1,53 +1,131 @@
+/* ============================================
+   PAGINATION - Page Navigation
+   ============================================ */
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 8px;
-  border: 1px solid #e9ecef;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.pagination-info {
+  position: absolute;
+  left: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.pagination-info strong {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
 }
 
 .page-numbers {
   display: flex;
-  gap: 0.5rem;
+  gap: var(--spacing-xs);
+  align-items: center;
+  justify-content: center;
 }
 
+/* Page Button */
 .page-btn {
-  padding: 0.5rem 0.85rem;
-  border: 1px solid #dee2e6;
-  background: white;
-  color: #495057;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 40px;
-  font-weight: 500;
+  height: 40px;
+  padding: 0 var(--spacing-sm);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+  user-select: none;
 }
 
-.page-btn:hover {
-  border-color: #0066cc;
-  color: #0066cc;
-  background: #f8f9fa;
+.page-btn:hover:not(:disabled):not(.active) {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  background: rgba(75, 15, 138, 0.05);
+}
+
+.page-btn:active:not(:disabled) {
+  transform: scale(0.95);
 }
 
 .page-btn.active {
-  background: #212529;
+  background: var(--brand-gradient);
   color: white;
-  border-color: #212529;
+  border-color: transparent;
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-active);
 }
 
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: var(--app-bg);
+}
+
+/* Navigation Buttons (Prev/Next) */
+.page-btn.nav-btn {
+  min-width: 80px;
+  gap: var(--spacing-xs);
+}
+
+.page-btn.nav-btn svg {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+/* Ellipsis */
+.page-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  color: var(--text-muted);
+  font-size: var(--font-size-base);
+  user-select: none;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .pagination {
-    padding: 1rem;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+  
+  .pagination-info {
+    order: -1;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .page-numbers {
+    width: 100%;
+    justify-content: center;
   }
   
   .page-btn {
-    padding: 0.4rem 0.7rem;
     min-width: 36px;
-    font-size: 0.85rem;
+    height: 36px;
+    font-size: var(--font-size-sm);
+  }
+  
+  .page-btn.nav-btn {
+    min-width: 70px;
   }
 }

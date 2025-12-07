@@ -1,67 +1,141 @@
+/* ============================================
+   FILTER BAR - Filter Pills Row
+   ============================================ */
 .filter-bar {
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
   flex-wrap: wrap;
   align-items: center;
 }
 
+/* Filter Pill/Dropdown */
 .filter-dropdown {
-  padding: 0.65rem 1rem;
-  border: 1px solid #ced4da;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  background-color: white;
-  color: #495057;
+  height: var(--filter-height);
+  padding: 0 calc(var(--spacing-md) + var(--icon-sm) + var(--spacing-xs)) 0 var(--spacing-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  background-color: var(--card-bg);
+  color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--transition-fast);
   min-width: 140px;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23495057' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%236c757d' d='M5 6L0 0h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  padding-right: 2.5rem;
+  background-position: right var(--spacing-md) center;
+  background-size: 10px 6px;
 }
 
 .filter-dropdown:hover {
-  border-color: #0066cc;
-  background-color: #f8f9fa;
+  border-color: var(--brand-purple);
+  background-color: var(--app-bg);
+  color: var(--text-primary);
 }
 
 .filter-dropdown:focus {
   outline: none;
-  border-color: #0066cc;
-  box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
+  border-color: var(--brand-purple);
+  box-shadow: 0 0 0 3px rgba(75, 15, 138, 0.1);
+  color: var(--text-primary);
 }
 
+.filter-dropdown option {
+  padding: var(--spacing-sm);
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+/* Date Input Specific */
 .date-input {
   background-image: none !important;
-  padding-right: 1rem;
+  padding-right: var(--spacing-md);
   cursor: text;
+  min-width: 160px;
 }
 
 .date-input::-webkit-calendar-picker-indicator {
   cursor: pointer;
+  opacity: 0.6;
 }
 
+.date-input::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Refresh Button */
+.refresh-button {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.refresh-button:hover {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  background-color: rgba(75, 15, 138, 0.05);
+  transform: rotate(90deg);
+}
+
+.refresh-button:active {
+  transform: rotate(180deg) scale(0.95);
+}
+
+.refresh-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Sort Dropdown (right-aligned) */
 .sort-dropdown {
   margin-left: auto;
-  min-width: 240px;
-  font-weight: 500;
+  min-width: 200px;
+  font-weight: var(--font-weight-medium);
 }
 
+/* Active/Selected State */
+.filter-dropdown.active {
+  background-color: var(--brand-purple);
+  color: white;
+  border-color: var(--brand-purple);
+}
+
+.filter-dropdown.active:hover {
+  background-color: var(--brand-purple);
+  opacity: 0.9;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .filter-bar {
-    gap: 0.5rem;
+    gap: var(--spacing-xs);
   }
   
   .filter-dropdown {
-    min-width: 120px;
-    font-size: 0.85rem;
+    min-width: 110px;
+    font-size: var(--font-size-xs);
+    padding-left: var(--spacing-sm);
+    padding-right: calc(var(--spacing-sm) + var(--icon-sm) + var(--spacing-xs));
   }
   
   .sort-dropdown {
     margin-left: 0;
     width: 100%;
+    min-width: unset;
+  }
+  
+  .date-input {
+    min-width: 140px;
   }
 }

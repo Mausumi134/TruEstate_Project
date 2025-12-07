@@ -32,24 +32,43 @@ function SummaryCards({ data, pagination }) {
   return (
     <div className="summary-cards">
       <div className="summary-card">
-        <div className="card-title">Total units sold</div>
-        <div className="card-value">{summary.totalUnits}</div>
+        <div className="card-header">
+          <div className="card-title">Total units sold</div>
+          <svg className="card-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M9 6V9M9 12H9.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        </div>
+        <div className="card-value">{summary.totalUnits.toLocaleString('en-IN')}</div>
+        <div className="card-subtitle">Total quantity sold</div>
       </div>
 
       <div className="summary-card">
-        <div className="card-title">Total Amount</div>
+        <div className="card-header">
+          <div className="card-title">Total Amount</div>
+          <svg className="card-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M9 6V9M9 12H9.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        </div>
         <div className="card-value">
           ₹{summary.totalAmount.toLocaleString('en-IN')}
-          <span className="card-subtitle">({summary.recordCount} SRs)</span>
         </div>
+        <div className="card-subtitle">{summary.recordCount} transactions</div>
       </div>
 
       <div className="summary-card">
-        <div className="card-title">Total Discount</div>
+        <div className="card-header">
+          <div className="card-title">Total Discount</div>
+          <svg className="card-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M9 6V9M9 12H9.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        </div>
         <div className="card-value">
           ₹{summary.totalDiscount.toLocaleString('en-IN')}
-          <span className="card-subtitle">({summary.recordCount} SRs)</span>
         </div>
+        <div className="card-subtitle">{summary.recordCount} transactions</div>
       </div>
     </div>
   );

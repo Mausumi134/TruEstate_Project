@@ -80,6 +80,7 @@ function SalesPage() {
               <Pagination
                 currentPage={currentPage}
                 totalPages={pagination?.totalPages || 1}
+                totalRecords={pagination?.totalRecords || 0}
                 onPageChange={handlePageChange}
               />
             </>
