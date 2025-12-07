@@ -1,0 +1,67 @@
+.filter-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-dropdown {
+  padding: 0.65rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  background-color: white;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 140px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23495057' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+}
+
+.filter-dropdown:hover {
+  border-color: #0066cc;
+  background-color: #f8f9fa;
+}
+
+.filter-dropdown:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
+}
+
+.date-input {
+  background-image: none !important;
+  padding-right: 1rem;
+  cursor: text;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.sort-dropdown {
+  margin-left: auto;
+  min-width: 240px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .filter-bar {
+    gap: 0.5rem;
+  }
+  
+  .filter-dropdown {
+    min-width: 120px;
+    font-size: 0.85rem;
+  }
+  
+  .sort-dropdown {
+    margin-left: 0;
+    width: 100%;
+  }
+}

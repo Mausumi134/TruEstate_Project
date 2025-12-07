@@ -1,0 +1,144 @@
+.filter-panel {
+  background: white;
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  border: 1px solid #e9ecef;
+}
+
+.filter-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.filter-panel::-webkit-scrollbar-track {
+  background: #f1f3f5;
+  border-radius: 10px;
+}
+
+.filter-panel::-webkit-scrollbar-thumb {
+  background: #adb5bd;
+  border-radius: 10px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.filter-header h2 {
+  font-size: 1.4rem;
+  color: #212529;
+  font-weight: 700;
+}
+
+.clear-btn {
+  background: #fff5f5;
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.clear-btn:hover {
+  background: #ff6b6b;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(255,107,107,0.3);
+}
+
+.filter-section {
+  margin-bottom: 2rem;
+}
+
+.filter-section h3 {
+  font-size: 1rem;
+  color: #495057;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.5rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.filter-checkbox:hover {
+  background: #f8f9fa;
+}
+
+.filter-checkbox input[type="checkbox"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: #667eea;
+}
+
+.filter-checkbox span {
+  font-size: 0.95rem;
+  color: #495057;
+}
+
+.age-inputs, .date-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.age-inputs input, .date-inputs input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.age-inputs input:focus, .date-inputs input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+}
+
+.age-inputs span, .date-inputs span {
+  color: #868e96;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tags-container {
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.tags-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.tags-container::-webkit-scrollbar-track {
+  background: #f1f3f5;
+  border-radius: 10px;
+}
+
+.tags-container::-webkit-scrollbar-thumb {
+  background: #adb5bd;
+  border-radius: 10px;
+}

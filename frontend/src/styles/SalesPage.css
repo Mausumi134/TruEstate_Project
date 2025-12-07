@@ -1,0 +1,46 @@
+.sales-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+}
+
+.content-area {
+  padding: 1.5rem 2rem;
+  flex: 1;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  margin: 2rem 0;
+}
+
+.error {
+  color: #e74c3c;
+  border-left: 4px solid #e74c3c;
+}
+
+.loading {
+  color: #667eea;
+}
+
+@media (max-width: 1024px) {
+  .main-container {
+    margin-left: 0;
+  }
+  
+  .content-area {
+    padding: 1rem;
+  }
+}

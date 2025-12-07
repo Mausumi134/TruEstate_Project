@@ -1,0 +1,39 @@
+.sorting-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  border: 1px solid #dee2e6;
+}
+
+.sorting-dropdown label {
+  font-size: 0.95rem;
+  color: #495057;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sorting-dropdown select {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: white;
+  color: #495057;
+  transition: all 0.2s;
+  min-width: 140px;
+}
+
+.sorting-dropdown select:hover {
+  border-color: #667eea;
+}
+
+.sorting-dropdown select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+}

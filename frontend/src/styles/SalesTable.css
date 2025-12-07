@@ -1,0 +1,74 @@
+.sales-table-container {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.sales-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1400px;
+}
+
+.sales-table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.sales-table th {
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #495057;
+  white-space: nowrap;
+}
+
+.sales-table td {
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid #f1f3f5;
+  font-size: 0.9rem;
+  color: #212529;
+  white-space: nowrap;
+}
+
+.sales-table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.sales-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.sales-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.no-data {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #868e96;
+  font-size: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.no-data::before {
+  content: "📊";
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .sales-table th,
+  .sales-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
