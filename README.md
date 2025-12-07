@@ -1,5 +1,7 @@
 # Retail Sales Management System
 
+🔗 **Live Application:** [https://truestate-project-1.onrender.com](https://truestate-project-1.onrender.com)
+
 ## Overview
 A full-stack web application for managing retail sales data with advanced search, filtering, sorting, and pagination capabilities. The system processes structured sales data from CSV format and provides an intuitive interface for data exploration and analysis. Built with modern web technologies following clean architecture principles and professional coding standards.
 
@@ -84,6 +86,16 @@ npm run build
 cd backend
 npm start
 ```
+
+## Live Deployment
+
+**Frontend:** [https://truestate-project-1.onrender.com](https://truestate-project-1.onrender.com)  
+**Backend API:** [https://truestate-project.onrender.com](https://truestate-project.onrender.com)
+
+The application is deployed on Render with:
+- Frontend: Static site deployment
+- Backend: Web service with Node.js
+- Database: CSV file stored via Git LFS
 
 ## Project Structure
 ```
