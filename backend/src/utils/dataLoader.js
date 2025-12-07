@@ -15,8 +15,12 @@ export const loadSalesData = () => {
 
     console.log('Starting to load CSV data...');
 
-    fs.createReadStream(csvPath, { highWaterMark: 64 * 1024 })
-      .pipe(csv())
+    fs.createReadStream(csvPath, { highWaterMark: 64 * 1024, encoding: 'utf8' })
+      .pipe(csv({ 
+        skipEmptyLines: true,
+        trim: true,
+        mapHeaders: ({ header }) => header.trim()
+      }))
       .on('data', (row) => {
         // Limit rows to prevent memory overflow
         if (rowCount >= MAX_ROWS) {
