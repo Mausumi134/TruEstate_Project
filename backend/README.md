@@ -6,7 +6,8 @@ Backend API for the Retail Sales Management System, providing endpoints for sear
 ## Tech Stack
 - Node.js
 - Express.js
-- CSV Parser
+- MongoDB Atlas (M0 Free tier)
+- Mongoose ODM
 
 ## Setup Instructions
 
@@ -15,14 +16,26 @@ Backend API for the Retail Sales Management System, providing endpoints for sear
 npm install
 ```
 
-2. Ensure the CSV dataset is in the root directory
+2. Configure MongoDB Atlas:
+   - Create a free M0 cluster at mongodb.com/cloud/atlas
+   - Get your connection string
+   - Create `.env` file:
+   ```
+   PORT=5000
+   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/salesdb
+   ```
 
-3. Start the development server:
+3. Import data (one-time):
+```bash
+node src/scripts/importData.js
+```
+
+4. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Start the production server:
+5. Start the production server:
 ```bash
 npm start
 ```

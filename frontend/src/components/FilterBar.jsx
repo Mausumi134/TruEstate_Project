@@ -49,6 +49,7 @@ function FilterBar({ filters, sorting, onFilterChange, onSortChange }) {
     onFilterChange('tags', '');
     onFilterChange('paymentMethod', '');
     onFilterChange('startDate', '');
+    onFilterChange('endDate', '');
     onSortChange({ sortBy: 'date', sortOrder: 'desc' });
   };
 

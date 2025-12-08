@@ -21,13 +21,13 @@ export const getSalesData = async (req, res) => {
 
     const filters = {
       search,
-      customerRegion: customerRegion || '',
-      gender: gender || '',
+      customerRegion: customerRegion ? (Array.isArray(customerRegion) ? customerRegion : customerRegion.split(',')) : [],
+      gender: gender ? (Array.isArray(gender) ? gender : gender.split(',')) : [],
       minAge: minAge ? parseInt(minAge) : null,
       maxAge: maxAge ? parseInt(maxAge) : null,
-      productCategory: productCategory || '',
-      tags: tags || '',
-      paymentMethod: paymentMethod || '',
+      productCategory: productCategory ? (Array.isArray(productCategory) ? productCategory : productCategory.split(',')) : [],
+      tags: tags ? (Array.isArray(tags) ? tags : tags.split(',')) : [],
+      paymentMethod: paymentMethod ? (Array.isArray(paymentMethod) ? paymentMethod : paymentMethod.split(',')) : [],
       startDate,
       endDate
     };

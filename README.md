@@ -16,7 +16,8 @@ A full-stack web application for managing retail sales data with advanced search
 **Backend:**
 - Node.js 18+ - Runtime environment
 - Express.js 4.19 - Web framework
-- CSV Parser - Data processing
+- MongoDB Atlas - Database (M0 Free tier)
+- Mongoose - ODM for MongoDB
 - CORS - Cross-origin resource sharing
 
 ## Search Implementation Summary
@@ -40,7 +41,7 @@ Server-side pagination is implemented with a fixed page size of **10 items per p
 ### Prerequisites
 - Node.js 18 or higher
 - npm or yarn package manager
-- CSV dataset file (place in backend directory)
+- MongoDB Atlas account (free tier)
 
 ### Backend Setup
 ```bash
@@ -59,9 +60,10 @@ npm run dev
 The frontend application will start on `http://localhost:5173`
 
 ### Environment Configuration
-Create a `.env` file in the backend directory (optional):
+Create a `.env` file in the backend directory:
 ```
 PORT=5000
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/salesdb?retryWrites=true&w=majority
 ```
 
 Create a `.env` file in the frontend directory (optional):
@@ -69,12 +71,20 @@ Create a `.env` file in the frontend directory (optional):
 VITE_API_URL=http://localhost:5000
 ```
 
+### Data Import
+Import CSV data to MongoDB (one-time setup):
+```bash
+cd backend
+node src/scripts/importData.js
+```
+
 ### Running the Application
-1. Ensure the CSV dataset (`truestate_assignment_dataset.csv`) is in the backend directory
-2. Start the backend server first (runs on port 5000)
-3. Start the frontend development server (runs on port 5173)
-4. Open your browser and navigate to `http://localhost:5173`
-5. The application will load with the sales data ready for exploration
+1. Ensure MongoDB Atlas is configured in backend/.env
+2. Import data using the script above (first time only)
+3. Start the backend server (runs on port 5000)
+4. Start the frontend development server (runs on port 5173)
+5. Open your browser and navigate to `http://localhost:5173`
+6. The application will load with the sales data ready for exploration
 
 ### Production Build
 ```bash
@@ -95,7 +105,7 @@ npm start
 The application is deployed on Render with:
 - Frontend: Static site deployment
 - Backend: Web service with Node.js
-- Database: CSV file stored via Git LFS
+- Database: MongoDB Atlas (M0 Free tier - 512 MB)
 
 ## Project Structure
 ```

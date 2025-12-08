@@ -31,7 +31,7 @@ npm run dev
 npm run build
 ```
 
-The application will run on `http://localhost:3000`
+The application will run on `http://localhost:5173` (Vite default port)
 
 ## Features
 - Real-time search across customer names and phone numbers

@@ -11,6 +11,9 @@ backend/
 ├── src/
 │   ├── controllers/     # Request handlers
 │   ├── services/        # Business logic
+│   ├── models/          # MongoDB schemas
+│   ├── config/          # Database configuration
+│   ├── scripts/         # Data import scripts
 │   ├── utils/           # Helper functions
 │   ├── routes/          # API route definitions
 │   └── index.js         # Application entry point
@@ -29,13 +32,24 @@ backend/
 
 **Services (`services/salesService.js`)**
 - Implement business logic
-- Coordinate data processing operations
-- Manage data initialization and caching
+- Build MongoDB queries based on filters
+- Execute database operations
 - Return processed data to controllers
 
-**Utils**
-- `dataLoader.js`: CSV file parsing and data loading
-- `dataProcessor.js`: Pure functions for filtering, sorting, searching, and pagination
+**Models (`models/Sale.js`)**
+- Define MongoDB schema for sales data
+- Configure indexes for optimized queries
+- Define data validation rules
+
+**Config (`config/database.js`)**
+- MongoDB connection management
+- Connection pooling configuration
+- Error handling for database operations
+
+**Scripts (`scripts/importData.js`)**
+- One-time CSV to MongoDB data import
+- Batch processing for large datasets
+- Index creation after import
 
 **Routes (`routes/salesRoutes.js`)**
 - Define API endpoints
@@ -45,9 +59,10 @@ backend/
 1. Client sends HTTP request to API endpoint
 2. Express router directs request to appropriate controller
 3. Controller parses request parameters and calls service
-4. Service applies search, filters, sorting via utility functions
-5. Service applies pagination and returns formatted result
-6. Controller sends JSON response to client
+4. Service builds MongoDB query with filters, search, and sorting
+5. Service executes query with pagination
+6. MongoDB returns filtered and paginated results
+7. Controller sends JSON response to client
 
 ## Frontend Architecture
 
@@ -108,9 +123,10 @@ frontend/
 ## Key Design Decisions
 
 ### Backend
-- **In-memory data caching**: CSV loaded once on first request for performance
-- **Pure utility functions**: Separate concerns, easier testing
+- **MongoDB Atlas**: Cloud database for scalability and reliability
+- **Indexed queries**: Optimized database indexes for fast filtering
 - **Query parameter API**: RESTful design, flexible filtering
+- **Mongoose ODM**: Schema validation and query building
 
 ### Frontend
 - **Debounced search**: Reduces API calls, improves UX
@@ -119,7 +135,9 @@ frontend/
 - **CSS modules**: Scoped styling, no conflicts
 
 ## Performance Considerations
-- Backend caches parsed CSV data in memory
-- Frontend debounces search input
-- Pagination limits data transfer
-- Filters applied server-side for efficiency
+- MongoDB indexes on frequently queried fields (region, gender, category, tags, date)
+- Text indexes for full-text search on customer name and phone
+- Server-side pagination reduces data transfer
+- Frontend debounces search input to reduce API calls
+- Filters and sorting executed at database level for efficiency
+- Connection pooling for optimal database performance
