@@ -1,6 +1,7 @@
 # Retail Sales Management System
 
 🔗 **Live Application:** [https://truestate-project-1.onrender.com](https://truestate-project-1.onrender.com)
+<img width="1911" height="955" alt="Screenshot 2025-12-08 214013" src="https://github.com/user-attachments/assets/44eac0d0-7ef6-420f-be5a-d493f56a0538" />
 
 ## Overview
 A full-stack web application for managing retail sales data with advanced search, filtering, sorting, and pagination capabilities. The system processes structured sales data from CSV format and provides an intuitive interface for data exploration and analysis. Built with modern web technologies following clean architecture principles and professional coding standards.
